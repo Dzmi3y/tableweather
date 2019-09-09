@@ -21,7 +21,7 @@ namespace GetWeaterPhoneApp.Services
         public async Task<IEnumerable<string>> Get()
         {
             HttpClient client = GetClient();
-            string result = await client.GetStringAsync(Url);
+            string result = await client.GetStringAsync(url);
             return JsonConvert.DeserializeObject<IEnumerable<string>>(result);
         }
 
