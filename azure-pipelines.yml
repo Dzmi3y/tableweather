@@ -20,5 +20,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - script: docker build -t dzmi3y/tableweather 
- 
+    - script: build -t dzmi3y/tableweather 
+    - script: login -u dzmi3y -p 666ybprjehjdytdsqbyntkktrn666
+    - script: push dzmi3y/tableweather 
+   
