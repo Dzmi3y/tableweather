@@ -4,5 +4,5 @@ steps:
         docker login -u $(dockerId) -p $(passwordDocker)
         docker push dzmi3y/tableweather 
         docker login --username=_ --password=$(token) registry.heroku.com
-        docker build -t registry.heroku.com/apps/tableweather
-        docker push registry.heroku.com/apps/tableweather	
+        docker build -t registry.heroku.com/tableweather/web
+        docker push registry.heroku.com/tableweather/web	
