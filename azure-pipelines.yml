@@ -20,23 +20,7 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
-
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
-        arguments: -t dzmi3y/tableweather
-
+ 
 
     - task: Docker@2
       displayName: Dockerhub login
@@ -44,7 +28,7 @@ stages:
         command: login
         tags: |
           $(tag)
-        arguments: -u dzmi3y -p 666ybprjehjdytdsqbyntkktrn666
+        arguments: {u:'dzmi3y' ,p :'666ybprjehjdytdsqbyntkktrn666'}
 
 
     
@@ -66,7 +50,7 @@ stages:
         arguments: --username=dzmi3y@gmail.com --password=666Cfnfyf&666 registry.heroku.com
 
     - task: Docker@2
-      displayName: Login in heroky
+      displayName: Build in heroky
       inputs:
         command: build
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
