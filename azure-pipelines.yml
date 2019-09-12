@@ -1,8 +1,8 @@
 steps:
     - script: |
-        docker build -t $(dockerId)/$(imageName)  
+        docker build -t $(dockerId)/$(imageName):latest
         docker login -u $(dockerId) -p $(passwordDocker)
-        docker push dzmi3y/tableweather 
+        docker push $(dockerId)/$(imageName)  
         docker login --username=_ --password=$(token) registry.heroku.com
         docker build -t registry.heroku.com/tableweather/web
         docker push registry.heroku.com/tableweather/web	
