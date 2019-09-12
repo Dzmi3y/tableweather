@@ -20,10 +20,9 @@ stages:
     pool:
       vmImage: 'ubuntu-latest'
     steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        command: build
-        dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-        tags: |
-          $(tag)
+    - script: docker build -t dzmi3y/tableweather 
+    - script: docker login -u dzmi3y -p 666ybprjehjdytdsqbyntkktrn666
+    - script: docker push dzmi3y/tableweather 
+    - script: docker login --username=dzmi3y@gmail.com --password=666Cfnfyf&666 registry.heroku.com
+    - script: docker build -t registry.heroku.com/apps/tableweather
+    - script: docker push registry.heroku.com/apps/tableweather
