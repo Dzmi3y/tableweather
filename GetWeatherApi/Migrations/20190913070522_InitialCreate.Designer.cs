@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace GetWeatherApi.Migrations
 {
     [DbContext(typeof(WeatherContext))]
-    [Migration("20190906081226_InitialCreate")]
+    [Migration("20190913070522_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

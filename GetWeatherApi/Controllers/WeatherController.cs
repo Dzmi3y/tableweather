@@ -12,10 +12,27 @@ namespace GetWeatherApi.Controllers
     [ApiController]
     public class WeatherController : ControllerBase
     {
-        private WeatherContext db;
+        WeatherContext db;
         public WeatherController(WeatherContext dbContext)
         {
             this.db = dbContext;
+            Init();
+        }
+
+        private void Init()
+        {
+            if (!db.WeatherEntities.Any())
+            {
+                db.WeatherEntities.AddRange(
+                    new WeatherEntity() { CityName = "C1", Temperature = 13 },
+                    new WeatherEntity() { CityName = "C2", Temperature = 23 },
+                    new WeatherEntity() { CityName = "C3", Temperature = 432 },
+                    new WeatherEntity() { CityName = "C4", Temperature = 2 },
+                    new WeatherEntity() { CityName = "C5", Temperature = 4 }
+                    );
+                db.SaveChanges();
+            }
+
         }
 
 

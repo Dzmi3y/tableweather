@@ -28,7 +28,6 @@ namespace GetWeatherApi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             string connection = Configuration.GetConnectionString("DefaultConnection");
-           
             services.AddDbContext<WeatherContext>(options =>
                 options.UseNpgsql(connection));
         }
