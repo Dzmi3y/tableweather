@@ -17,5 +17,4 @@ RUN dotnet publish "GetWeatherApi.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "GetWeatherApi.dll"]
 CMD dotnet /app/GetWeatherApi.dll
